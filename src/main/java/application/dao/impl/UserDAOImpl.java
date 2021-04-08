@@ -14,11 +14,11 @@ import application.dbConnection.dbConnection;
 public class UserDAOImpl implements UserDAO {
 
     //private static String CREATE = "insert into user(first_name, last_name, age, address, user_email) value(?,?,?,?,?)";
-    private static String CREATE = "insert into user(`email`,`first_name`, `last_name`, `role`, `password`) values (?,?,?,?,?)";
+    private static String CREATE = "insert into user(`firstName`, `lastName`, `password`, `email`, `phone_number`, `address`, `postal_code`) values (?,?,?,?,?,?,?)";
     private static String READ_BY_ID = "select * from user where id =?";
     private static String READ_BY_EMAIL = "select * from user where email=?";
     // private static String UPDATE_BY_ID = "update user set first_name=?, last_name =?, age =?, address =?, user_email =? where id =?";
-    private static String UPDATE_BY_ID = "update user set email=?, first_name = ?, last_name = ?, role=?, password =?  where id = ?";
+    private static String UPDATE_BY_ID = "update user set firstName = ?, lastName = ?,  password =?, email=?, phone_number=?, address=?, postal_code=?  where id = ?";
     private static String DELETE_BY_ID = "delete from user where id =?";
     private static String READ_ALL = "select * from user";
 
@@ -39,8 +39,11 @@ public class UserDAOImpl implements UserDAO {
             preparedStatemant.setString(1, user.getEmail());
             preparedStatemant.setString(2, user.getFirstName());
             preparedStatemant.setString(3, user.getLastName());
-            preparedStatemant.setString(4,  user.getRole());
+            preparedStatemant.setString(4, user.getAddress());
             preparedStatemant.setString(5, user.getPassword());
+            preparedStatemant.setInt(6, user.getId());
+            preparedStatemant.setString(7, user.getPhone_number());
+            preparedStatemant.setInt(8, user.getPostal_code());
             preparedStatemant.executeUpdate();
 
             ResultSet rs = preparedStatemant.getGeneratedKeys();
@@ -64,12 +67,16 @@ public class UserDAOImpl implements UserDAO {
             result.next();
             // return UserMapper.map(result);
             Integer userId = result.getInt("id");
-            String email = result.getString("email");
-            String firstName = result.getString("first_name");
-            String lastName = result.getString("last_name");
-            String role = result.getString("role");
+            String firstName = result.getString("firstName");
+            String lastName = result.getString("lastName");
             String password = result.getString("password");
-            user = new User(userId, email, firstName, lastName, role, password);
+            String email = result.getString("email");
+            String phone_number = result.getString("phone_number");
+            String address = result.getString("address");
+            Integer postal_code = result.getInt("postal_code");
+
+
+            user = new User(userId, firstName, lastName, password, email, phone_number, address, postal_code);
 
 
         } catch (SQLException e) {
@@ -85,9 +92,11 @@ public class UserDAOImpl implements UserDAO {
             preparedStatemant.setString(1, user.getEmail());
             preparedStatemant.setString(2, user.getFirstName());
             preparedStatemant.setString(3, user.getLastName());
-            preparedStatemant.setString(4, user.getRole());
+            preparedStatemant.setString(4, user.getAddress());
             preparedStatemant.setString(5, user.getPassword());
             preparedStatemant.setInt(6, user.getId());
+            preparedStatemant.setString(7, user.getPhone_number());
+            preparedStatemant.setInt(8, user.getPostal_code());
             preparedStatemant.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -118,12 +127,16 @@ public class UserDAOImpl implements UserDAO {
             while (result.next()) {
                 //listOfUser.add(UserMapper.map(result));
                 Integer userId = result.getInt("id");
-                String email = result.getString("email");
-                String firstName = result.getString("first_name");
-                String lastName = result.getString("last_name");
-                String role = result.getString("role");
+                String firstName = result.getString("firstName");
+                String lastName = result.getString("lastName");
                 String password = result.getString("password");
-                listOfUser.add(new User(userId, email, firstName, lastName, role, password));
+                String email = result.getString("email");
+                String phone_number = result.getString("phone_number");
+                String address = result.getString("address");
+                Integer postal_code = result.getInt("postal_code");
+
+
+                listOfUser.add(new User(userId, firstName, lastName, password, email, phone_number, address, postal_code));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -141,11 +154,15 @@ public class UserDAOImpl implements UserDAO {
             result.next();
 
             Integer userId = result.getInt("id");
-            String firstName = result.getString("first_name");
-            String lastName = result.getString("last_name");
-            String role = result.getString("role");
+            String firstName = result.getString("firstName");
+            String lastName = result.getString("lastName");
             String password = result.getString("password");
-            user = new User(userId, email, firstName, lastName, role, password);
+            String phone_number = result.getString("phone_number");
+            String address = result.getString("address");
+            Integer postal_code = result.getInt("postal_code");
+
+
+            user = new User(userId, firstName, lastName, password, email, phone_number, address, postal_code);
 
         } catch (SQLException e) {
             // LOGGER.error(e);
