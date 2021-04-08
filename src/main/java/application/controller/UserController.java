@@ -1,11 +1,13 @@
 package application.controller;
 
 import application.domain.User;
+import application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RestController;
 import application.service.UserService;
 import application.service.impl.UserServiceImpl;
@@ -18,16 +20,34 @@ public class UserController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    UserRepository userRepository;
+//
+//    public UserController(UserRepository userRepository) {
+//        this.userRepository = userRepository;
+//    }
 
-//    @GetMapping("/users")
+
+
+    //    @GetMapping("/users")
     @RequestMapping(path = "/users",method = RequestMethod.GET)
     public String goIndex(HttpServletRequest request){
        return "index";
     }
 
-    @GetMapping("/register_1")
-    public String goRegister(HttpServletRequest request){
-        return "register_1";
+    @GetMapping("/register")
+    public String goRegister(HttpServletRequest request, Model model){
+        model.addAttribute("register", new User());
+        return "register";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String postRegister(User model){
+       //model.addAttribute("register", new User());
+
+        model.setId(222);
+        userRepository.save(model);
+        return "register";
     }
 
     @GetMapping("/login")
