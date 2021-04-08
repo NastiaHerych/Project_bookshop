@@ -13,14 +13,16 @@ create table bookshop (
 
 create table user (
 	id int not null primary key auto_increment,
-    first_name varchar(45) not null,
-    last_name varchar(45) not null,
-    age int not null,
+    firstName varchar(45) not null,
+    lastName varchar(45) not null,
+    passsword  varchar(45) not null,
     address varchar(120) not null,
-	user_email varchar(50) not null unique
+	email varchar(50) not null unique,
+    postal_code int not null,
+	phone_number varchar(45) not null
 );
 drop table user;
-select * from user;
+select * from user; 
 
 create table bucket (
 	id int not null primary key auto_increment,
