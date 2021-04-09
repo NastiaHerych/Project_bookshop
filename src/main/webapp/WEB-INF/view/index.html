@@ -6,18 +6,18 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <style>
- body{
+body{
     background-image: url(images/library2.jpg);
     background-attachment: fixed;
     background-size: cover;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    /* display: flex;
+}
+.main-menu {
+    margin-top: 275px;
+    display: flex;
     flex-direction: column;
-    align-self: center;
-    align-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 h1 {
     color: #00264d;
@@ -26,14 +26,6 @@ h1 {
 }
 a {
     text-decoration: none;
-}
-.main-menu {
-    margin-top: 19%;
-    margin-right: 10%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .low-buttons{
     display: flex;
@@ -56,59 +48,38 @@ a {
     height: 40px;
     color: #ffffff;
     border-radius: 10px;
-    background-color: #00264d;
+    background-color: #254e77;
     box-shadow: -1px 14px 23px 0px rgba(255, 255, 255, 0.295);
     transition-duration: 0.4s;
 }
 .hey:hover{
-    /* background-color: #ffffff; */
-    /* color: #000000; */
     transform: translateY(-1px);
 }
 .hey:active{
     background-color: #ffffff;
     color: #000000;
     transform: translateY(1px);
-    box-shadow: -1px 14px 23px 0px rgba(43, 255, 0, 0.2);
+    box-shadow: -1px 14px 23px 0px rgb(128, 128, 247);
 }
-
 span {
     text-align: center;
     background-color: #ffffff;
     height: 200px;
     width: 520px;
-    /* border-radius: 10px; */
 }
-
-
 </style>
 </head>
 <body>
-
 <div class="main-menu">
         <span>
         <div>
             <h1>Welcome to bookshop!</h1>
         </div>
         <div class="low-buttons">
-            <!-- <button class="register-b">
-                <a href="register-1">Register</a>
-            </button> -->
             <a href="register" class="hey" role="button" aria-pressed="true">Register</a>
             <a href="login" class="hey" role="button" aria-pressed="true">Sign in</a>
-
         </div>
-
     </span>
 </div>
-
-<!-- <br><br><br><br><br>
-<h1>Welcome to bookshop!</h1>
-
-    <form>
-        <a href="register_1" class="button1"> <button class="login-b">hey</button></a>
-        <a href="login" class="button2">Sign in</a>
-    </form> -->
-
 </body>
 </html>

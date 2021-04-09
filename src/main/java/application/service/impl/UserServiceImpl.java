@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService {
         return userDao.read(id);
     }
 
+    @Override
+    public User read_E(String email) {
+        return userDao.getUserByEmail(email);
+    }
+
    @Override
     public User update(User t) {
         return userDao.update(t);
