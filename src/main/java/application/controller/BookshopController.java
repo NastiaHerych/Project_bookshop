@@ -19,7 +19,6 @@ public class BookshopController {
 
     @GetMapping("/bookshop")
     public String showAll(HttpServletRequest request) {
-       // request.setAttribute(shop, shopService.findAll());
         return "index";
     }
 }

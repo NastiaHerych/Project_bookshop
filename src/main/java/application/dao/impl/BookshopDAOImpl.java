@@ -26,24 +26,6 @@ public class BookshopDAOImpl {
         connection = dbConnection.openConnection();
     }
 
-//    public Bookshop create(Bookshop bookshop) {
-//        try {
-//            preparedStatemant = connection.prepareStatement(CREATE);
-//            preparedStatemant.setString(1, bookshop.getBookName());
-//            preparedStatemant.setString(2, bookshop.getBookAuthor());
-//            preparedStatemant.setDouble(3, bookshop.getBookPrice());
-//            preparedStatemant.setInt(4, bookshop.getQuantity());
-//            preparedStatemant.executeUpdate();
-//            ResultSet rs = preparedStatemant.getGeneratedKeys();
-//            rs.next();
-//            bookshop.setId(rs.getInt(1));
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return bookshop;
-//    }
-
 
     public Bookshop read(Integer id) {
         Bookshop book = null;
@@ -60,20 +42,6 @@ public class BookshopDAOImpl {
         return book;
     }
 
-//    public Bookshop update(Bookshop bookshop) {
-//        try {
-//            preparedStatemant = connection.prepareStatement(UPDATE_BY_ID);
-//            preparedStatemant.setString(1, bookshop.getBookName());
-//            preparedStatemant.setString(2, bookshop.getBookAuthor());
-//            preparedStatemant.setDouble(3, bookshop.getBookPrice());
-//            preparedStatemant.setInt(4, bookshop.getQuantity());
-//            preparedStatemant.setInt(5, bookshop.getId());
-//            preparedStatemant.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return bookshop;
-//    }
 
     public void delete(Integer id) {
         try {
