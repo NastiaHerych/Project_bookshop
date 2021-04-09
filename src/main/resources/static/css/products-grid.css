@@ -1,0 +1,62 @@
+:root {
+	--gutter: 20px;
+}
+
+.container {
+	/* max-width: 1234px; */
+	width: 1244px;
+	height: auto;
+	padding: 0 var(--gutter);
+	margin: 0 auto;
+}
+
+.container-cont{
+	width: auto;
+	border-radius: 4px;
+	padding: 40px;
+	padding-right: 80px;
+	height: 620px;
+	margin-left: 380px;
+	margin-right: 157px;
+	margin-bottom: 30px;
+	background-color: #ffffff;
+}
+
+.grid-container {
+	width: 100%;
+	display: grid;
+	grid-gap: var(--gutter);
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.products-grid {
+	grid-column: 3 span;
+	display: grid;
+	grid-gap: var(--gutter);
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.filters {
+	position: relative;
+}
+
+.filters-price__input {
+	width: 100%;
+}
+
+.fixed {
+	position: fixed;
+	top: var(--gutter);
+	left: 0;
+}
+
+.absolute {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+/*here*/
+.height {
+	height: 1000px;
+	margin-bottom: 30px;
+}

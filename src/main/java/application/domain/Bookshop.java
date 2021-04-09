@@ -30,11 +30,4 @@ public class Bookshop {
         this.price = price;
     }
 
-//    public Bookshop(String bookName, String bookAuthor, Double bookPrice, Integer quantity) {
-//        super();
-//        this.bookName = bookName;
-//        this.bookAuthor = bookAuthor;
-//        this.bookPrice = bookPrice;
-//        this.quantity = quantity;
-//    }
 }

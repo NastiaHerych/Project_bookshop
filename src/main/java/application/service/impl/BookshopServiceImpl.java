@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class BookshopServiceImpl implements BookshopService {
-   // @Autowired
+
     private BookshopDAO bookshopDAO;
 
     @Override
