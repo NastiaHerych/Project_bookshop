@@ -3,12 +3,50 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Registration Success</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
 </head>
+<style>
+
+*{
+    font-family: "Open Sans", sans-serif;
+}
+    body{
+        background-image: url(/images/library2.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .main-menu {
+    margin-top: 275px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    color: #00264d;
+    text-shadow: 2px 2px 1px white;
+    font-size: 30px;
+}
+span {
+    text-align: center;
+    background-color: #ffffff;
+    height: 120px;
+    width: 520px;
+}
+
+</style>
 <body>
+<div class="main-menu">
+        <span>
+
 <div class="container text-center">
-    <h3>You have signed up successfully!</h3>
+    <h1>You have signed up successfully!</h1>
     <h4><a th:href="@{/login}">Click here to Login</a></h4>
+</div>
+</span>
 </div>
 
 </body>
