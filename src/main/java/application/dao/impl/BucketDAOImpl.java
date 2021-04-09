@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.dbConnection.dbConnection;
+import application.domain.User;
 import application.mapper.BucketMapper;
 
 public class BucketDAOImpl implements BucketDAO {
@@ -21,6 +22,7 @@ public class BucketDAOImpl implements BucketDAO {
     private static String CREATE = "insert into bucket(user_id, book_id, date) value(?,?,?)";
     private static String READ_BY_ID = "select * from bucket where id =?";
     private static String DELETE_BY_ID = "delete from bucket where id =?";
+//    private static String READ_BY_EMAIL = "select * from bucket where email=?";
 
     // private static Logger LOGGER = Logger.getLogger(BucketDAOImpl.class);
 
@@ -73,6 +75,12 @@ public class BucketDAOImpl implements BucketDAO {
         }
         return bucket;
     }
+
+    @Override
+    public Bucket read_E(String email) {
+        return null;
+    }
+
 
     public void delete(Integer id) {
         try {

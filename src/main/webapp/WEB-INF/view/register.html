@@ -5,23 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-    <!--    <link rel="stylesheet" href="style.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
     <style>
-        @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 body {
   background-image: url(images/library2.jpg);
-/* <!--  background: #fec107;--> */
-background-attachment: fixed;
-    background-size: cover;
+  background-attachment: fixed;
+  background-size: cover;
   padding: 0 10px;
 }
+
+.tooltip span {
+	border-radius: 80px;
+    display: inline;
+    position: absolute;
+    padding: 2px 11px;
+    margin-left: -133px;
+    margin-top: -26px;
+    width: fit-content;
+    background: #ffffff;
+    color: #6c6c6c;
+    visibility: visible;
+}
+
 .wrapper {
   max-width: 500px;
   width: 100%;
@@ -162,9 +175,9 @@ background-attachment: fixed;
 .wrapper .form .inputfield .btn {
   width: 100%;
   padding: 8px 10px;
-  font-size: 15px;
+  font-size: 25px;
   border: 0px;
-  background: #00264d;
+  background: #254e77;
   color: #fff;
   cursor: pointer;
   border-radius: 3px;
@@ -172,7 +185,7 @@ background-attachment: fixed;
 }
 
 .wrapper .form .inputfield .btn:hover {
-  background: #00264d;
+  background: #254e77;
 }
 
 .wrapper .form .inputfield:last-child {
@@ -192,10 +205,9 @@ background-attachment: fixed;
   }
 }
 
-    </style>
+</style>
 </head>
 <body>
-
 <div class="wrapper">
     <div class="title">
         Registration Form
@@ -211,12 +223,15 @@ background-attachment: fixed;
         </div>
         <div class="inputfield">
             <label>Password</label>
-            <input type="password" th:field="*{password}" class="input">
+            <input name="password" id="password" type="password" th:field="*{password}" onkeyup="check();" class="input">
         </div>
         <div class="inputfield">
-            <label>Confirm Password</label>
-            <input type="password" class="input">
+
+            <label class="tooltip">Confirm Password<span id='message'> <!-- tooltip text --> </span></label>
+            <input type="password" name="confirm_password" id="confirm_password" onkeyup="check();" class="input">
+
         </div>
+        <!-- <p id='message' style="margin-left: 140px; margin-bottom: 5px;"></p> -->
         <div class="inputfield">
             <label>Gender</label>
             <div class="custom_select">
@@ -245,15 +260,15 @@ background-attachment: fixed;
         </div>
         <div class="inputfield terms">
             <label class="check">
-                <input type="checkbox">
+                <input type="checkbox" id="checkbox" onclick="agree();">
                 <span class="checkmark"></span>
             </label>
             <p>Agreed to terms and conditions</p>
         </div>
 
-        <a style="display:block" href="login">
+        <a style="display:block; text-decoration: none;" href="login">
             <div class="inputfield" >
-                <input type="submit" value="Register" class="btn">
+                <input disabled type="submit" value="Register" class="btn" id="loginbtn">
 
             </div>
         </a>
@@ -261,6 +276,44 @@ background-attachment: fixed;
 
     </form>
 </div>
+<script>
+  let agree = function() {
+    let agreed = document.getElementById('checkbox').checked;
+    if (agreed) {
+      let button = document.getElementById('loginbtn');
+      button.disabled = false;
+    } else {
+      let button = document.getElementById('loginbtn');
+      button.disabled = true;
+    }
+  }
+  let check = function() {
+    let pass = document.getElementById('password').value;
+    let conf = document.getElementById('confirm_password').value;
+    if (pass == '' || pass == undefined || pass == null || conf == '' || conf == undefined || conf == null) {
+      document.getElementById('message').style.visibility = 'hidden';
+      document.getElementById('confirm_password').style.boxShadow = '1px 0px 4px white';
+      document.getElementById('password').style.boxShadow = '1px 0px 4px white';
+    } else {
+      if (document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+    document.getElementById('message').style.visibility = 'visible';
+    document.getElementById('message').style.border = '1px solid #cccccc';
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+    document.getElementById('confirm_password').style.boxShadow = '1px 0px 4px white';
+    document.getElementById('password').style.boxShadow = '1px 0px 4px white';
+  } else {
+    document.getElementById('message').style.visibility = 'visible';
+    document.getElementById('message').style.border = '1px solid #cccccc';
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+    document.getElementById('confirm_password').style.boxShadow = '1px 0px 4px red';
+    document.getElementById('password').style.boxShadow = '1px 0px 4px red';
+  }
+  }
+}
 
+</script>
 </body>
 </html>

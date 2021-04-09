@@ -86,6 +86,7 @@ public class BookshopDAOImpl {
 
     }
 
+
     public List<Bookshop> readAll() {
         List<Bookshop> listOfUser = new ArrayList<>();
 

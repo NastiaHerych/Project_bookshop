@@ -85,6 +85,11 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
+    @Override
+    public User read_E(String email) {
+        return null;
+    }
+
     //  @Override
     public User update(User user) {
         try {

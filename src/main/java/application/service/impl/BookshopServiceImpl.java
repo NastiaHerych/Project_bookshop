@@ -22,7 +22,12 @@ public class BookshopServiceImpl implements BookshopService {
         return bookshopDAO.read(id);
     }
 
-  @Override
+    @Override
+    public Bookshop read_E(String email) {
+        return null;
+    }
+
+    @Override
     public Bookshop update(Bookshop t) {
         return bookshopDAO.update(t);
     }

@@ -3,6 +3,7 @@ package application.service.impl;
 import application.dao.BucketDAO;
 import application.dao.impl.BucketDAOImpl;
 import application.domain.Bucket;
+import application.domain.User;
 import application.service.BucketService;
 import org.springframework.stereotype.Service;
 
@@ -39,10 +40,21 @@ public class BucketServiceImpl implements BucketService {
         return bucketDao.read(id);
     }
 
+    @Override
+    public Bucket read_E(String email) {
+        return null;
+    }
+
+//    @Override
+//    public Bucket read_E(String email) {
+//        return bucketDao.getUserByEmail(email);
+//    }
+
    @Override
     public Bucket update(Bucket t) {
         return bucketDao.update(t);
     }
+
 
    @Override
     public void delete(Integer id) {

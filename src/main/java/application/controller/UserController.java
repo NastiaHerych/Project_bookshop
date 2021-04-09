@@ -22,14 +22,7 @@ public class UserController {
     UserService userService;
     @Autowired
     UserRepository userRepository;
-//
-//    public UserController(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
 
-
-
-    //    @GetMapping("/users")
     @RequestMapping(path = "/users",method = RequestMethod.GET)
     public String goIndex(HttpServletRequest request){
        return "index";
@@ -44,16 +37,24 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String postRegister(User model){
        //model.addAttribute("register", new User());
-
-        model.setId(222);
+      //  model.setId(222);
         userRepository.save(model);
-        return "register";
+        return "login";
     }
 
     @GetMapping("/login")
     public String goLogin(HttpServletRequest request){
         return "login";
     }
+
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String postLogin(User model){
+//        //model.addAttribute("register", new User());
+//        //  model.setId(222);
+//
+//        return "login";
+//    }
+
 
     @GetMapping("/cabinet")
     public String goCabinet(HttpServletRequest request){
